@@ -6,9 +6,8 @@ from os.path import exists
 import datetime as dt
 import pathlib
 import PySimpleGUI as sg
-from config import API_KEY
 
-def updateCSVS():
+def updateCSVS(API_KEY):
     """Updates the relevant equity data csv files"""
 
     for i in ["NYSE", "NASDAQ", "LSE"]:
@@ -34,7 +33,7 @@ def get_jsonparsed_data(url):
     data = response.read().decode("utf-8")
     return json.loads(data)
 
-def GB_US_Arbitrage():
+def GB_US_Arbitrage(API_KEY):
 
     #* Checks if there are already tables to avoid unnecessary request for the API
     #* Also checks if the CSV files are up to date
@@ -145,15 +144,43 @@ def GB_US_Arbitrage():
 
 
 if __name__=="__main__":
-    table = GB_US_Arbitrage()
-    headings = list(table.columns)
-    data = table.values.tolist()
-    layout = [[sg.Table(data, headings=headings, justification="left", key="-TABLE-", max_col_width=30, font=('Any 13'))]]      
+    def open_window(key):
+        table = GB_US_Arbitrage(key)
+        headings = list(table.columns)
+        data = table.values.tolist()
 
-    window = sg.Window('US-GB Arbitrage Opportunities', layout)    
+        layout = [[sg.Table(data, headings=headings, justification="left", key="-TABLE-", max_col_width=30, font=('Any 13'))]] 
+        window = sg.Window("US-GB Arbitrage Opportunity Finder", layout, modal=False)
+        choice = None
+        while True:
+            event, values = window.read()
+            if event == "Exit" or event == sg.WIN_CLOSED:
+                break
+            
+        window.close()
+    
+    def main():
+        layout = [[sg.Text('Enter your API Key Here: ', font=('Any 13'))],      
+                 [sg.InputText(key='key', font=('Any 13'))],      
+                 [sg.Submit(key="submit", font=('Any 13')), sg.Cancel(font=('Any 13'))]]  
 
-    event, values = window.read()    
-    window.close()
+        window = sg.Window("US-GB Arbitrage Opportunity Finder", layout)
+        while True:
+            event, values = window.read()
+
+            if event == "Exit" or event == sg.WIN_CLOSED:
+                break
+            if event == "submit":
+                key = str(values["key"])
+                open_window(key)
+                window.close()
+        
+        window.close()
+
+    main()
+
+
+
     
 
 
