@@ -1,10 +1,11 @@
-import pandas as pd
 from urllib.request import urlopen
 import json
-import yfinance as yf
 from os.path import exists
 import datetime as dt
 import pathlib
+
+import pandas as pd
+import yfinance as yf
 import PySimpleGUI as sg
 
 def updateCSVS(API_KEY):
@@ -181,6 +182,7 @@ if __name__=="__main__":
 
 
 
+    
     
 
 
