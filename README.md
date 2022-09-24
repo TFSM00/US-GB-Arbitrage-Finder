@@ -23,7 +23,7 @@ However, given that one of the libraries used is **Pandas**, the executable ende
 
 Moreover, the use of a web-app, like most of my other projects, would be overkill and repetitive, since there is almost no interaction needed.
 
-I ended up having to re-write the program to not use pandas and other modules by using json instead of csvs, reducing its' size to around 90MB.
+I ended up having to re-write the program to not use pandas and other modules by using json instead of csvs, reducing its' size to around 19MB.
 
 <br>
 
@@ -42,13 +42,18 @@ First, to be able to use the **free API**, you need to register an account in **
 
 To access your API Key, you need to copy the key from this [webpage](https://site.financialmodelingprep.com/developer/docs/dashboard/).
 
+After obtaining the API Key, download the executable according to the OS you are using on your machine. The executables can be downloaded [here](https://github.com/TFSM00/US-GB-Arbitrage-Finder/releases/tag/v1.0.0).
 
+Download it to a separate folder as the program will output some files used by the program every time you run it. Do not delete those files as they are important to reduce API calls.
+
+Then, your OS will most likely warn you about running an external executable but you have to execute it anyway for the program to work.
+After executing the program, the following window will appear:
 
 <p align="center">
     <img src="./images/window1.png" width="500px">
 </p>
 
-Then, submit the key and a new window will appear with the results.
+Enter and submit the key and a new window will appear with the results.
 
 <p align="center">
     <img src="./images/window2.png" width="500px">
