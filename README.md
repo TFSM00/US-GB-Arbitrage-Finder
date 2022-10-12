@@ -10,7 +10,7 @@
 
 ## **Project Description**
 
-This is a financial data science project that finds arbitrage opportunities for stocks between the NYSE, NASDAQ and London Stock Exchange. This involves looking for companies that are listed in more than one exchange and try to take advantage of price discrepancy and exchange rates by buying a stock of a company in one exchange and sell it in another one for a "guaranteed and riskless profit".
+This is a financial data science project that tries to find arbitrage opportunities for stocks between the NYSE, NASDAQ and London Stock Exchange. This involves looking for companies that are listed in more than one exchange and try to take advantage of price discrepancy and exchange rates by buying a stock of a company in one exchange and sell it in another one for a "guaranteed and riskless profit".
 
 It is a GUI-based application that uses  [Financial Modeling Prep's](https://site.financialmodelingprep.com/) free financial data API.
 
